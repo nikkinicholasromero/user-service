@@ -63,7 +63,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
     public LocalContainerEntityManagerFactoryBean entityManager() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.demo");
+        em.setPackagesToScan(this.getClass().getPackage().getName());
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -87,12 +87,5 @@ public class ApplicationConfig implements WebMvcConfigurer {
     @Profile("mock")
     public RestTemplateBuilder restTemplateBuilder() {
         return new MockRestTemplateBuilder();
-    }
-
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        String origins = environment.getProperty("cors.allowed-origins");
-        registry.addMapping("/**")
-                .allowedOrigins(origins.split(","));
     }
 }
