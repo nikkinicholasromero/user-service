@@ -1,5 +1,6 @@
 package com.demo.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -9,10 +10,13 @@ import java.security.SecureRandom;
 
 @Service
 public class HashService {
+    @Value("${hash.algorithm}")
+    private String hashAlgorithm;
+
     public String hash(String clear, String salt) {
         try {
             String text = salt + clear + salt;
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            MessageDigest messageDigest = MessageDigest.getInstance(hashAlgorithm);
             messageDigest.update(text.getBytes());
             byte[] byteData = messageDigest.digest();
 
