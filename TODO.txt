@@ -1,8 +1,5 @@
 TODO:
-- AuthenticationOrchestratorTest
 - UserAccountRepositoryTest
-- AuthenticationResponseBuilderTest
-- JwtServiceTest
 - Add validate accessToken endpoint
 - Add refreshToken endpoint
 - Implement Spring Native

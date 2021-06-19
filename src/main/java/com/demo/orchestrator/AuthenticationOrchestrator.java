@@ -29,7 +29,7 @@ public class AuthenticationOrchestrator {
             UserAccount userAccount = optionalUserAccount.get();
             String hashedPassword = hashService.hash(request.getPassword(), userAccount.getSalt());
             if (hashedPassword.equals(userAccount.getPassword())) {
-                return Optional.of(authenticationResponseBuilder.buildAuthenticationResponse(userAccount.getEmailAddress()));
+                return Optional.of(authenticationResponseBuilder.buildAuthenticationResponse(request.getUsername()));
             }
         }
 
