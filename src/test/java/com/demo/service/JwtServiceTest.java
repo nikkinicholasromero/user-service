@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class JwtServiceTest {
@@ -34,5 +38,12 @@ public class JwtServiceTest {
         assertThat(claims.getSubject()).isEqualTo(SUBJECT);
         assertThat(claims.getIssuer()).isEqualTo(ISSUER);
         assertThat(claims.getIssuedAt()).isBefore(claims.getExpiration());
+
+        Date expiration = claims.getExpiration();
+        LocalDateTime localDateTime = expiration.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDateTime();
+        assertThat(localDateTime).isAfter(LocalDateTime.now());
+        assertThat(localDateTime).isBefore(LocalDateTime.now().plusSeconds(TOKEN_EXPIRE));
     }
 }
