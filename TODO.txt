@@ -1,5 +1,4 @@
 TODO:
-- UserAccountRepositoryTest
 - Add validate accessToken endpoint
 - Add refreshToken endpoint
 - Implement Spring Native
