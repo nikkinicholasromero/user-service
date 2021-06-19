@@ -1,5 +1,6 @@
 TODO:
-- Add validate accessToken endpoint
+- Add TokenDecodeServiceTest
 - Add refreshToken endpoint
+- Add Integration tests
 - Implement Spring Native
 - Externalize config

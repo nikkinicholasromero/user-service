@@ -43,7 +43,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void auth_whenSucess() throws Exception {
+    public void auth_whenSuccess() throws Exception {
         AuthenticationRequest request = new AuthenticationRequest();
         request.setType("root");
         request.setUsername("some_username");
