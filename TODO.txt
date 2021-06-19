@@ -1,5 +1,7 @@
 TODO:
 - Add refreshToken endpoint
 - Add Integration tests
+- Delete Main java
+- Write proper ApplicationTest
 - Implement Spring Native
 - Externalize config
