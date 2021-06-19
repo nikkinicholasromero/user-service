@@ -1,5 +1,4 @@
 TODO:
-- Add Integration tests
 - Delete Main java
 - Write proper ApplicationTest
 - Implement Spring Native
